@@ -1,0 +1,2 @@
+# ridichat
+Ridiculously Simple Chat
