@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Anonymous Pro', monospace;
+  overflow: hidden;
+}
+
+.pg {
+  position: relative;
+  background-color: #0d0c0e;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.dont-break {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  word-break: break-all;
+}
+
+.pg .input-line [data-desc="input"] > span {
+  white-space: pre-wrap;
+}
+
+.pg .input-line [data-desc="input"] > span.selected {
+  background-color: #fff;
+  color: #0d0c0e;
+}
+
+.pg input {
+  border: none;
+  background: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -999;
+}
+
+.green {
+  color: #8eec8e;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ridichat",
+  "version": "1.0.0",
+  "description": "Ridiculously Simple Chat",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "QuantumSheep <nathanael.dmc@outlook.fr>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuantumSheep/ridichat"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}

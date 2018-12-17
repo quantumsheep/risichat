@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ridiculously Simple Chat RiSiChat</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <form id="pg" class="pg">
+    <div id="pg_chat" class="dont-break">
+      <div>Welcome to Quantum Chat 👋</div>
+      <div>Define your nickname using <span class="green">$nickname=bob</span> (bob being the wanted nickname).</div>
+      <br>
+    </div>
+    <div id="input" class="input-line dont-break">
+      <input type="text" name="input" autocomplete="off">
+      <span data-desc="prompt">anonymous> </span>
+      <span data-desc="input"></span>
+    </div>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/pg.js"></script>
+</body>
+
+</html>
