@@ -8,5 +8,7 @@ You can use a demo at [chat.qtmsheep.com](https://chat.qtmsheep.com). Or just lo
 
 ![Demo](pres/demo.png)
 
+This is not a terminal view, it's the chat's style by the way.
+
 # Contribute
 You want to contribute to the project? Ok, go ahead! I'll accept any pull request that seems reasonable or useful (or not) to the project.
