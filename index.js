@@ -33,7 +33,9 @@ ws.on("connection", (socket, request) => {
   socket.nickname = ANONYMOUS;
 
   const index = clients.push(socket) - 1;
-  console.log(`${clients.length} clients online`);
+
+  console.log(`--> ${socket.nickname}`);
+  broadcast(`--> ${socket.nickname}`, socket);
 
   socket.on("message", message => {
     if (message.startsWith("$nickname=")) {
@@ -46,7 +48,8 @@ ws.on("connection", (socket, request) => {
 
   socket.on("close", () => {
     const user = clients.splice(index, 1);
-    console.log(`${user.nickname || ANONYMOUS} disconnected`);
+    console.log(`<-- ${user.nickname || ANONYMOUS}`);
+    broadcast(`<-- ${socket.nickname}`);
   });
 });
 
