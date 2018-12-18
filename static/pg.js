@@ -4,7 +4,7 @@ const pg_display = pg.querySelector('[data-desc="input"]');
 const pg_prompt = pg.querySelector('[data-desc="prompt"]');
 
 const socket = new WebSocket(`ws://${window.location.host}`);
-let nickname = "anonymous";
+let nickname = 'anonymous';
 
 pg.addEventListener('click', function (e) {
   e.preventDefault();
@@ -16,7 +16,7 @@ pg.addEventListener('click', function (e) {
  * @this {HTMLInputElement}
  */
 function updateDisplay(forceFocus = false) {
-  pg_display.innerHTML = "";
+  pg_display.innerHTML = '';
 
   const selection = {
     start: pg.input.selectionStart || 0,
@@ -24,7 +24,7 @@ function updateDisplay(forceFocus = false) {
   }
 
   /** @type {string} */
-  let text = pg.input.value || "";
+  let text = pg.input.value || '';
 
   if (forceFocus || pg.input === document.activeElement) {
     text += ' ';
@@ -64,7 +64,7 @@ pg.addEventListener('submit', function (e) {
     pg_prompt.innerText = `${nickname}> `;
   }
 
-  pg.input.value = "";
+  pg.input.value = '';
   updateDisplay();
 });
 
