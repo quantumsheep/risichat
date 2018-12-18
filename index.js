@@ -40,10 +40,9 @@ ws.on("connection", (socket, request) => {
     }
   });
 
-  socket.on("close", socket => {
-    console.log("Socket closed");
-
-    clients.splice(index, 1);
+  socket.on("close", () => {
+    const user = clients.splice(index, 1);
+    console.log(`${user.nickname || ANONYMOUS} disconnected`);
   });
 });
 
