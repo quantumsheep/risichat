@@ -18,7 +18,9 @@ app.use("/static", express.static("static"));
 
 const ANONYMOUS = "anonymous";
 
+/** @type {WebSocket[]} */
 const clients = [];
+
 ws.on("connection", (socket, request) => {
   socket.nickname = ANONYMOUS;
 
