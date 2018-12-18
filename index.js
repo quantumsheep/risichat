@@ -43,13 +43,8 @@ ws.on("connection", (socket, request) => {
 
   socket.on("close", socket => {
     console.log("Socket closed");
-    const user = clients[index];
+    
     clients.splice(index, 1);
-    clients.forEach((client) => {    
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(`${user.nickname} disconnected`);
-      }
-    });
   });
 });
 
