@@ -6,9 +6,12 @@ const path = require('path');
 
 const PORT = 3000;
 
-const ws = new WebSocket.Server({ server });
-
 app.use('/static', express.static('static'));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('static/index.html'));
+});
+
 
 const ANONYMOUS = 'anonymous';
 
@@ -29,6 +32,7 @@ function broadcast(data, except = null) {
   });
 }
 
+const ws = new WebSocket.Server({ server });
 ws.on("connection", (socket, request) => {
   socket.nickname = ANONYMOUS;
 
@@ -53,8 +57,5 @@ ws.on("connection", (socket, request) => {
   });
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve('static/index.html'));
-});
 
 server.listen(PORT, () => console.log(`> Running on http://localhost:${PORT}`));
