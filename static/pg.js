@@ -3,7 +3,7 @@ const pg_chat = document.getElementById('pg_chat');
 const pg_display = pg.querySelector('[data-desc="input"]');
 const pg_prompt = pg.querySelector('[data-desc="prompt"]');
 
-const socket = io();
+const socket = new WebSocket('ws://localhost:3500');
 let nickname = "anonymous";
 
 pg.addEventListener('click', function (e) {
@@ -54,7 +54,7 @@ pg.input.addEventListener('keypress', updateDisplay);
 pg.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  socket.emit('message', pg.input.value);
+  socket.send( pg.input.value);
 
   if (pg.input.value.startsWith('$nickname=')) {
     [, nickname] = pg.input.value.split('=', 2);
@@ -68,14 +68,14 @@ pg.addEventListener('submit', function (e) {
   updateDisplay();
 });
 
-socket.on('message', message => {
+socket.onmessage = ({data}) => {
   const div = document.createElement('div');
-  div.innerText = message;
+  div.innerText = data;
 
   pg_chat.appendChild(div);
 
   pg.scrollTop = pg.scrollHeight;
-});
+};
 
 function init() {
   updateDisplay();
