@@ -32,8 +32,7 @@ ws.on("connection", (socket, request) => {
       const [, nickname = ANONYMOUS] = message.split("=", 2);
       socket.nickname = nickname;
     } else {
-      //for (let client of clients) {
-      clients.forEach((client) => {      
+      clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
           client.send(`${socket.nickname}> ${message}`);
         }
@@ -43,7 +42,7 @@ ws.on("connection", (socket, request) => {
 
   socket.on("close", socket => {
     console.log("Socket closed");
-    
+
     clients.splice(index, 1);
   });
 });
