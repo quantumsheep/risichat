@@ -1,19 +1,13 @@
 const express = require("express");
 const app = express();
-const http = require("http").Server(app);
+const server = require("http").Server(app);
 const WebSocket = require("ws");
 const path = require("path");
 
 const PORT = 3000;
 
-const ws = new WebSocket.Server(
-  {
-    port: "3500"
-  },
-  () => {
-    console.log(`Websocket stated on port ${PORT}`);
-  }
-);
+const ws = new WebSocket.Server({ server });
+
 app.use("/static", express.static("static"));
 
 const ANONYMOUS = "anonymous";
@@ -50,4 +44,4 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("static/index.html"));
 });
 
-http.listen(PORT, () => console.log(`> Running on http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`> Running on http://localhost:${PORT}`));

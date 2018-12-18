@@ -3,7 +3,7 @@ const pg_chat = document.getElementById('pg_chat');
 const pg_display = pg.querySelector('[data-desc="input"]');
 const pg_prompt = pg.querySelector('[data-desc="prompt"]');
 
-const socket = new WebSocket('ws://localhost:3500');
+const socket = new WebSocket(`ws://${window.location.host}`);
 let nickname = "anonymous";
 
 pg.addEventListener('click', function (e) {
